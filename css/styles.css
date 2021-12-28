@@ -4,6 +4,7 @@
   --current-white-color: #ffffff;
   --current-black-color: #000000;
   --accent-color: #2196f3;
+  --hero-btn-accent-color: #188ce8;
   --first-bg-color: #2f303a;
   --second-bg-color: #f5f4fa;
   --current-icon-color: #afb1b8;
@@ -172,7 +173,6 @@ header {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 .icon-mail {
   width: 16px;
   height: 12px;
@@ -225,8 +225,9 @@ header {
 }
 
 .hero-btn {
-  border-radius: 4px;
-  border: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 32px;
   margin-left: auto;
   margin-right: auto;
@@ -241,14 +242,14 @@ header {
   letter-spacing: 0.06em;
   color: var(--current-white-color);
   background-color: var(--accent-color);
+  border-radius: 4px;
+  border: transparent;
 
   transition-property: color,
   background-color,
   box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
 }
 
 .backdrop {
@@ -317,12 +318,10 @@ transform: translate(-50%, -50%) scale(0.9);
   padding: 0;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  
 
   background-color: var(--current-white-color);
 
   transition-property: color,
-  background-color,
   box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -331,19 +330,19 @@ transform: translate(-50%, -50%) scale(0.9);
 .close-icon {
   height: 18px;
   width: 18px;
-  fill: var(--current-black-color);
+  fill: currentColor;
 }
 
-.form {
-  width: 528px;
-  outline: 10px solid tomato;
-  margin-left: auto;
-  margin-right: auto;
-  
+.close:hover,
+.close:focus {
+  cursor: pointer;
+  color: var(--accent-color);
 }
 
 .form-title {
-  font-style: 700;
+  margin-bottom: 12px;
+
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
   align-items: center;
@@ -351,12 +350,123 @@ transform: translate(-50%, -50%) scale(0.9);
   color: var(--current-black-color);
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  outline: 1px solid blue;
- 
+.form-label {
+  position: relative;
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
 }
+
+.form-label:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-label:last-of-type:focus-within {
+  outline: 1px solid var(--accent-color);
+}
+
+.form-item {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+color: var(--current-text-color);
+}
+
+.form-input,
+.form-comment {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  padding: 11px 12px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  transition-property: border;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--function);
+}
+
+.form-input:focus-visible,
+.form-input:focus,
+.form-comment:focus-visible,
+.form-comment:focus {
+  border: 1px solid var(--accent-color);
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+.form-comment {
+  display: block;
+  height: 120px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+
+  border-color: rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.form-icon {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+
+  width: 18px;
+  height: 18px;
+}
+
+.icon-check {
+  margin-right: 7px;
+  width: 16px;
+  height: 15px;
+
+  border: 2px solid var(--current-black-color);
+  border-radius: 4px;
+  fill: var(--current-white-color);
+
+  transition-property: fill,
+  border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-agreement {
+  color: var(--accent-color);
+}
+
+.checkbox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+
+
+}
+
+.checkbox:checked + .icon-check {
+  margin-right: 7px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  fill: var(--accent-color);
+}
+
 /*------------------------------features-----------------------*/
 .features-list {
   display: flex;
@@ -366,7 +476,7 @@ transform: translate(-50%, -50%) scale(0.9);
   width: 270px;
 }
 
-.features-item + .features-item {
+.features-item+.features-item {
   margin-left: 30px;
 }
 
@@ -792,10 +902,7 @@ transform: translate(-50%, -50%) scale(0.9);
 }
 
 .container-address {
-  margin: 0;
-  padding: 0;
-  margin-left: 15px;
-  width: 231px;
+  margin-right: 70px;
 }
 
 .footer-links-list {
@@ -804,7 +911,7 @@ transform: translate(-50%, -50%) scale(0.9);
 }
 
 .footer-links {
-  margin-left: 70px;
+  margin-right: auto;
 }
 
 .footer-icons {
@@ -834,4 +941,72 @@ transform: translate(-50%, -50%) scale(0.9);
 .footer-icons:hover,
 .footer-icons:focus {
   background-color: var(--accent-color);
+}
+
+.form-label-text {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--current-white-color);
+}
+
+.footer-form-input {
+  width: 358px;
+  height: 50px;
+  margin-right: 8px;
+  padding-left: 16px;
+
+  line-height: 20px;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  background-color: var(--first-bg-color);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.form-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 50px;
+  padding: 10px 29px;
+
+  color: var(--current-white-color);
+  font-weight: 700;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  background: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-btn:focus,
+.form-btn:hover {
+  background-color: var(--hero-btn-accent-color);
+}
+
+.form-btn-text {
+  margin-right: 10px;
+}
+
+.form-icon-send {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
