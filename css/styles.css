@@ -421,6 +421,10 @@ color: var(--current-text-color);
 
   width: 18px;
   height: 18px;
+  fill: var(--current-black-color);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-check {
@@ -446,16 +450,13 @@ color: var(--current-text-color);
   position: absolute;
   bottom: 0;
   left: 0;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-
-
-
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .checkbox:checked + .icon-check {
@@ -464,6 +465,10 @@ color: var(--current-text-color);
   height: 15px;
   border: 2px solid transparent;
   border-radius: 4px;
+  fill: var(--accent-color);
+}
+.form-input:focus-visible+.form-icon,
+.form-input:focus+.form-icon {
   fill: var(--accent-color);
 }
 
